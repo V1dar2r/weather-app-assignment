@@ -228,7 +228,6 @@ function renderWeather(data) {
     const iconClass = mapWeatherIcon(data.weather[0].main);
     els.weatherIcon.className = `ph-fill ${iconClass} text-6xl text-toss-blue`;
     
-    // 배경색 변경
 }
 
 function renderAirQuality(data) {
@@ -331,7 +330,7 @@ async function fetchCitySuggestions(query) {
         renderSuggestions(cities);
     } catch (error) { console.error(error); }
 }
-//test
+
 function renderSuggestions(cities) {
     if (cities.length === 0) {
         const noResultText = state.lang === 'kr' ? '검색 결과가 없습니다.<br>영어로 검색해보세요.' : 'No results found.<br>Try searching in English.';
