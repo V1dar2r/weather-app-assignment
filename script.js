@@ -229,7 +229,6 @@ function renderWeather(data) {
     els.weatherIcon.className = `ph-fill ${iconClass} text-6xl text-toss-blue`;
     
     // 배경색 변경
-    updateBackground(data.weather[0].main);
 }
 
 function renderAirQuality(data) {
@@ -576,7 +575,7 @@ function updateChart(forecastList) {
                 tooltip: {
                     enabled: true,
                     backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    titleColor: '#8b95a1',
+                    titleColor: '#f7f9fbff',
                     bodyColor: '#191f28',
                     borderColor: 'rgba(0,0,0,0.1)',
                     borderWidth: 1,
@@ -618,17 +617,7 @@ function updateChart(forecastList) {
     });
 }
 
-function updateBackground(weatherMain) {
-    const body = document.body;
-    switch (weatherMain.toLowerCase()) {
-        case 'clear': body.style.background = 'linear-gradient(to bottom right, #e0f2fe, #f0f9ff)'; break;
-        case 'clouds': body.style.background = 'linear-gradient(to bottom right, #f3f4f6, #e5e7eb)'; break;
-        case 'rain': case 'drizzle': case 'thunderstorm': body.style.background = 'linear-gradient(to bottom right, #cbd5e1, #94a3b8)'; break;
-        case 'snow': body.style.background = 'linear-gradient(to bottom right, #f8fafc, #e2e8f0)'; break;
-        case 'mist': case 'haze': case 'fog': body.style.background = 'linear-gradient(to bottom right, #d1d5db, #9ca3af)'; break;
-        default: body.style.background = '#f2f4f6';
-    }
-}
+
 
 function setupEventListeners() {
     els.searchBtn.addEventListener('click', () => {
