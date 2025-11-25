@@ -68,94 +68,92 @@
         </header>
 
         <!-- 메인 콘텐츠 -->
-        <main class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <!-- 왼쪽 사이드바 -->
-            <section class="lg:col-span-3">
-                <div class="bg-white p-6 rounded-[24px] shadow-sm h-full">
-                    <h2 id="labelWorld" class="text-xl font-bold mb-4 text-toss-text">세계 날씨</h2>
-                    <div class="space-y-4" id="worldCities"></div>
+<main class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    
+    <section class="lg:col-span-3 order-2 lg:order-1">
+        <div class="bg-white p-6 rounded-[24px] shadow-sm h-full">
+            <h2 id="labelWorld" class="text-xl font-bold mb-4 text-toss-text">세계 날씨</h2>
+            <div class="space-y-4" id="worldCities"></div>
+        </div>
+    </section>
+
+    <section class="lg:col-span-6 order-1 lg:order-2">
+        <div class="bg-white p-8 rounded-[32px] shadow-md relative overflow-hidden card-hover">
+            <button id="langToggle" class="absolute top-6 right-28 bg-toss-bg px-4 py-2 rounded-full text-sm transition-colors hover:bg-gray-200">
+                    <span id="langEn" class="text-gray-400">EN</span>
+                    <span class="text-gray-300 mx-1">|</span>
+                    <span id="langKo" class="font-bold text-toss-text">KR</span>
+            </button>   
+            <button id="unitToggle" class="absolute top-6 right-6 bg-toss-bg px-4 py-2 rounded-full text-sm transition-colors hover:bg-gray-200">
+                    <span id="unitC" class="font-bold text-toss-text">°C</span>
+                    <span class="text-gray-300 mx-1">|</span>
+                    <span id="unitF" class="text-gray-400">°F</span>
+            </button> 
+            <div class="text-center py-6">
+                <h2 id="cityName" class="text-2xl font-medium text-toss-gray mb-2">Seoul</h2>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <i id="weatherIcon" class="ph-fill ph-cloud-sun text-6xl text-toss-blue"></i>
+                    <span id="mainTemp" class="text-7xl font-bold tracking-tighter text-toss-text">24°</span>
                 </div>
-            </section>
+                <p id="weatherDesc" class="text-xl text-toss-text font-medium">대체로 맑음</p>
+            </div>
 
-            <!-- 중앙 메인 카드 -->
-            <section class="lg:col-span-6">
-                <div class="bg-white p-8 rounded-[32px] shadow-md relative overflow-hidden card-hover">
-                <button id="langToggle" class="absolute top-6 right-28 bg-toss-bg px-4 py-2 rounded-full text-sm transition-colors hover:bg-gray-200">
-                        <span id="langEn" class="text-gray-400">EN</span>
-                        <span class="text-gray-300 mx-1">|</span>
-                        <span id="langKo" class="font-bold text-toss-text">KR</span>
-                </button>   
-                <button id="unitToggle" class="absolute top-6 right-6 bg-toss-bg px-4 py-2 rounded-full text-sm transition-colors hover:bg-gray-200">
-                        <span id="unitC" class="font-bold text-toss-text">°C</span>
-                        <span class="text-gray-300 mx-1">|</span>
-                        <span id="unitF" class="text-gray-400">°F</span>
-                </button> 
-                    <div class="text-center py-6">
-                        <h2 id="cityName" class="text-2xl font-medium text-toss-gray mb-2">Seoul</h2>
-                        <div class="flex justify-center items-center gap-4 mb-4">
-                            <i id="weatherIcon" class="ph-fill ph-cloud-sun text-6xl text-toss-blue"></i>
-                            <span id="mainTemp" class="text-7xl font-bold tracking-tighter text-toss-text">24°</span>
-                        </div>
-                        <p id="weatherDesc" class="text-xl text-toss-text font-medium">대체로 맑음</p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-toss-bg p-4 rounded-2xl flex flex-col items-center justify-center">
-                            <span id="labelHumidity" class="text-toss-gray text-sm mb-1">습도</span>
-                            <div class="flex items-center gap-2">
-                                <i class="ph-fill ph-drop text-blue-400"></i>
-                                <span id="humidity" class="text-xl font-bold">45%</span>
-                            </div>
-                        </div>
-                        <div class="bg-toss-bg p-4 rounded-2xl flex flex-col items-center justify-center">
-                            <span id="labelWind" class="text-toss-gray text-sm mb-1">풍속</span>
-                            <div class="flex items-center gap-2">
-                                <i class="ph-fill ph-wind text-blue-400"></i>
-                                <span id="windSpeed" class="text-xl font-bold">3.5 m/s</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="w-full h-48">
-                        <p id="labelChart" class="text-toss-gray text-sm font-bold mb-2 ml-2">시간별 기온</p>
-                        <canvas id="tempChart"></canvas>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="bg-toss-bg p-4 rounded-2xl flex flex-col items-center justify-center">
+                    <span id="labelHumidity" class="text-toss-gray text-sm mb-1">습도</span>
+                    <div class="flex items-center gap-2">
+                        <i class="ph-fill ph-drop text-blue-400"></i>
+                        <span id="humidity" class="text-xl font-bold">45%</span>
                     </div>
                 </div>
-            </section>
-
-            <!-- 오른쪽 대기질 -->
-            <section class="lg:col-span-3">
-                <div class="bg-white p-6 rounded-[24px] shadow-sm h-full flex flex-col justify-between">
-                    <div>
-                        <h2 id="labelAir" class="text-xl font-bold mb-4 text-toss-text">대기질</h2>
-                        <div class="flex flex-col items-center py-6">
-                            <div id="aqiIndicator" class="w-32 h-32 rounded-full border-[8px] border-toss-blue flex items-center justify-center mb-4 relative transition-colors duration-300">
-                                <span id="aqiScore" class="text-4xl font-bold text-toss-blue">Good</span>
-                            </div>
-                            <p id="aqiDesc" class="text-center text-toss-gray">공기가 맑아요!<br>산책하기 좋은 날입니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="px-4 py-4 w-full">
-                        <div class="w-full h-3 bg-gradient-to-r from-blue-400 via-yellow-400 to-red-500 rounded-full opacity-50"></div>
-                        <div class="flex justify-between text-[10px] text-gray-400 mt-1">
-                            <span>Good</span>
-                            <span>Bad</span>
-                        </div>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center bg-toss-bg px-4 py-3 rounded-xl">
-                            <span id="labelPm10" class="text-sm text-gray-500">미세먼지 (PM10)</span>
-                            <span id="pm10" class="font-bold text-toss-text">- µg/m³</span>
-                        </div>
-                        <div class="flex justify-between items-center bg-toss-bg px-4 py-3 rounded-xl">
-                            <span id="labelPm25" class="text-sm text-gray-500">초미세먼지 (PM2.5)</span>
-                            <span id="pm25" class="font-bold text-toss-blue">- µg/m³</span>
-                        </div>
+                <div class="bg-toss-bg p-4 rounded-2xl flex flex-col items-center justify-center">
+                    <span id="labelWind" class="text-toss-gray text-sm mb-1">풍속</span>
+                    <div class="flex items-center gap-2">
+                        <i class="ph-fill ph-wind text-blue-400"></i>
+                        <span id="windSpeed" class="text-xl font-bold">3.5 m/s</span>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+
+            <div class="w-full h-48">
+                <p id="labelChart" class="text-toss-gray text-sm font-bold mb-2 ml-2">시간별 기온</p>
+                <canvas id="tempChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="lg:col-span-3 order-3">
+        <div class="bg-white p-6 rounded-[24px] shadow-sm h-full flex flex-col justify-between">
+            <div>
+                <h2 id="labelAir" class="text-xl font-bold mb-4 text-toss-text">대기질</h2>
+                <div class="flex flex-col items-center py-6">
+                    <div id="aqiIndicator" class="w-32 h-32 rounded-full border-[8px] border-toss-blue flex items-center justify-center mb-4 relative transition-colors duration-300">
+                        <span id="aqiScore" class="text-4xl font-bold text-toss-blue">Good</span>
+                    </div>
+                    <p id="aqiDesc" class="text-center text-toss-gray">공기가 맑아요!<br>산책하기 좋은 날입니다.</p>
+                </div>
+            </div>
+
+            <div class="px-4 py-4 w-full">
+                <div class="w-full h-3 bg-gradient-to-r from-blue-400 via-yellow-400 to-red-500 rounded-full opacity-50"></div>
+                <div class="flex justify-between text-[10px] text-gray-400 mt-1">
+                    <span>Good</span>
+                    <span>Bad</span>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <div class="flex justify-between items-center bg-toss-bg px-4 py-3 rounded-xl">
+                    <span id="labelPm10" class="text-sm text-gray-500">미세먼지 (PM10)</span>
+                    <span id="pm10" class="font-bold text-toss-text">- µg/m³</span>
+                </div>
+                <div class="flex justify-between items-center bg-toss-bg px-4 py-3 rounded-xl">
+                    <span id="labelPm25" class="text-sm text-gray-500">초미세먼지 (PM2.5)</span>
+                    <span id="pm25" class="font-bold text-toss-blue">- µg/m³</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
         <!-- 하단 주간 예보 -->
         <section class="bg-white p-6 md:p-8 rounded-[24px] shadow-sm">
