@@ -574,8 +574,8 @@ function updateChart(forecastList) {
                 tooltip: {
                     enabled: true,
                     backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                    titleColor: '#f7f9fbff',
-                    bodyColor: '#191f28',
+                    titleColor: '#191f28', // [변경됨] 흰색(#f7f9fbff) -> 검은색(#191f28)
+                    bodyColor: '#191f28',  // [유지] 본문도 검은색
                     borderColor: 'rgba(0,0,0,0.1)',
                     borderWidth: 1,
                     padding: 10,
